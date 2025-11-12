@@ -16,8 +16,6 @@
 2. 執行：
    ```
    python epub_generated.py
-```
-
 3. 生成的 EPUB 在 `output/output.epub`。
 
 ## 注意
@@ -25,9 +23,10 @@
 * 需安裝 Pandoc。
 * 支援 `.jpg`、`.jpeg`、`.png` 圖片。
 * Markdown 圖片語法需符合：
+
   ```
   ![替代文字](assets/圖片檔名.jpg)
-  ```
+
 * 不包含任何個人資訊，僅處理檔案名稱與 EPUB 生成。
 * 若圖片有 EXIF 旋轉資訊，工具會自動修正方向。
 
