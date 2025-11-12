@@ -1,19 +1,16 @@
 import os
 import re
 from pathlib import Path
-import subprocess
-
-BASE_DIR = Path(__file__).parent
-import re
-from pathlib import Path
 from PIL import Image, ExifTags
 import subprocess
 import sys
+import yaml
 
 # ---------- 設定 ----------
 MANUSCRIPT_DIR = Path("manuscript")
 ASSETS_DIR = Path("assets")
 OUTPUT_FILE = Path("output/output.epub")
+METADATA_FILE = Path("metadata.yaml")
 
 # ---------- 工具函數 ----------
 def safe_filename(name: str) -> str:
@@ -76,12 +73,20 @@ for md_file in md_files:
 # ---------- 生成 EPUB ----------
 OUTPUT_FILE.parent.mkdir(exist_ok=True)
 md_list = sorted(MANUSCRIPT_DIR.glob("*.md"))
+
+# 確認 metadata.yaml 存在
+if not METADATA_FILE.exists():
+    print(f"[WARNING] metadata.yaml not found: {METADATA_FILE}. EPUB 會缺少封面/書名資訊。")
+
 cmd = [
     "pandoc",
     *[str(f) for f in md_list],
     "-o", str(OUTPUT_FILE),
     "--resource-path", str(ASSETS_DIR)
 ]
+
+if METADATA_FILE.exists():
+    cmd.extend(["--metadata-file", str(METADATA_FILE)])
 
 print("Generating EPUB...")
 try:
