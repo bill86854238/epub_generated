@@ -30,10 +30,4 @@ Markdown 圖片語法需符合 ![](assets/圖片.jpg) 格式。
 
 不包含任何個人資訊，僅處理檔案名稱與 EPUB 生成。
 
-建議
-
-可將此工具公開於 GitHub，僅需將 manuscript/ 與 assets/ 的實際內容排除即可。
-
-EPUB 生成前，確認 Markdown 與圖片對應正確。
-
 若圖片有 EXIF 旋轉資訊，工具會自動修正方向。
