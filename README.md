@@ -6,6 +6,8 @@
 ## 功能
 - 自動整理 `assets/` 內圖片檔名，移除非法符號。
 - 自動修正圖片方向（EXIF Orientation）。
+- 批量壓縮圖片並限制最大尺寸，減少 EPUB 體積。
+- 封面自動縮放到 EPUB 推薦尺寸（1600x2560），並轉成 JPEG。
 - 更新 `manuscript/` 內 Markdown 連結，對應修正後的圖片檔名。
 - 依檔名排序生成 EPUB。
 
