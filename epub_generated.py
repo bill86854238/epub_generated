@@ -4,11 +4,16 @@ from pathlib import Path
 from PIL import Image, ExifTags
 import subprocess
 import sys
+from datetime import datetime
 
 # ---------- 設定 ----------
 MANUSCRIPT_DIR = Path("manuscript")
 ASSETS_DIR = Path("assets")
-OUTPUT_FILE = Path("output/book.epub")
+
+# 使用當前日期時間作為檔名
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+OUTPUT_FILE = Path(f"output/book_{timestamp}.epub")
+
 METADATA_FILE = Path("metadata.yaml")
 COVER_FILE = ASSETS_DIR / "cover.png"
 
